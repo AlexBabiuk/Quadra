@@ -26,17 +26,12 @@ import streamlit as st
 
 
 def reset_form():
-    # Явно записуємо початкові значення у відповідні ключі сесії
     st.session_state["coefficient_a"] = ""
     st.session_state["coefficient_b"] = ""
     st.session_state["coefficient_c"] = ""
 
 
 def validate_and_convert(user_input):
-    """
-    Перевіряє введення та повертає об'єкт SymPy, якщо це чисте число або корінь.
-    Блокує літери (x, y, a) та некоректні вирази.
-    """
 
     cleaned_input = user_input.replace('√', 'sqrt').strip()
 
@@ -86,7 +81,7 @@ def show_data():
         b_negative = b < 0
 
     except:
-        b_negative = False  # Якщо не вдалося вирахувати знак
+        b_negative = False
     if b == 0:
         term_b = ""
     elif b == 1:
