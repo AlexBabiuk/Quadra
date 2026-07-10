@@ -7,5 +7,5 @@ The program calculates a quadratic function based on the input values and visual
 ---
 
 ### Project Info 📈
-![License](https://shields.io)
-![Code Size](https://shields.io)
+![License](https://shields.io)AlexBabiuk/Quadra?color=violet
+![Code Size](https://shields.io)AlexBabiuk/Quadra?color=violet
