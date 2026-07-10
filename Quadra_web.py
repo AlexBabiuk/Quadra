@@ -23,6 +23,14 @@ import sympy as sp
 import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
+import io
+
+
+def get_image_bytes(format_type):
+    buf = io.BytesIO()
+    plt.gcf().savefig(buf, format=format_type, bbox_inches="tight", dpi=300)
+    buf.seek(0)
+    return buf
 
 
 def reset_form():
@@ -239,7 +247,27 @@ def show_data():
 
     st.pyplot(fig)
 
+    st.write("---")
+    st.subheader("📥 Експорт")
+
+    col1, col2 = st.columns([1, 2], gap="small")
+
+    png_bytes = get_image_bytes("png")
+    pdf_bytes = get_image_bytes("pdf")
+
     plt.close(fig)
+
+    col1.download_button(
+        label="📷 Завантажити графік як PNG",
+        data=png_bytes,
+        file_name="quadratic_function.png",
+        mime="image/png",)
+
+    col2.download_button(
+        label="📄 Завантажити графік як PDF",
+        data=pdf_bytes,
+        file_name="quadratic_function.pdf",
+        mime="application/pdf",)
 
 
 st.session_state.setdefault("coefficient_a", "")
@@ -247,8 +275,6 @@ st.session_state.setdefault("coefficient_b", "")
 st.session_state.setdefault("coefficient_c", "")
 
 
-# label = st.text("y = ax² + bx + c")
-# label = st.write("**y = ax² + bx + c**")
 label = st.subheader("y = ax² + bx + c")
 
 entry_1 = st.text_input("Введіть значення a:", key="coefficient_a")
