@@ -163,6 +163,8 @@ def show_data():
     equation_text_2 = equation_text_2.replace('sqrt', '√')
     equation_text_3 = equation_text_3.replace('sqrt', '√')
 
+    st.button("Скинути значення", on_click=reset_form)
+    
     st.success(f"Обчислюємо функцію: **y = {equation_text}**")
     st.success(
         "Знаходимо вершину параболи(Хо;Уо) за формулами: &nbsp;&nbsp;**x₀ = - b / 2a,&nbsp;&nbsp;&nbsp;y₀ = (-b² + 4ac) / 4a** ")
@@ -288,5 +290,3 @@ entry_3 = st.text_input("Введіть значення c:", key="coefficient_c
 if st.button("Розрахувати", type="primary"):
     show_data()
 
-
-st.button("Скинути значення", on_click=reset_form)
