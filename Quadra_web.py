@@ -67,13 +67,11 @@ def show_data():
         c = validate_and_convert(raw_c)
 
         if a == 0:
-            st.error(
-                "Увага! Коефіцієнт 'a' не може дорівнювати 0 для квадратичної функції!")
+            st.error(txt["error_a"])
             return
 
     except (sp.SympifyError, TypeError, ValueError, Exception):
-        st.error("Помилка! Дозволено лише: цілі, дробові та числа з коренем (√).\nПідкореневі числа записуються в душках √(n)\n де n потрібне число."
-                 )
+        st.error(txt["error_input"])
         return
 
     if a == 1:
@@ -153,7 +151,7 @@ def show_data():
         x_0 = -b / 2*a
         term_x = f" **x_₁_₂ = ({x_0:.1f} ; 0)**"
     else:
-        term_x = f"**Графік функції не перетинає вісь 0х.**"
+        term_x = txt["x_axis"]
 
     equation_text = f"{term_a}{term_b}{term_c}"
     equation_text_2 = f"{x0:.1f}"
@@ -163,18 +161,18 @@ def show_data():
     equation_text_2 = equation_text_2.replace('sqrt', '√')
     equation_text_3 = equation_text_3.replace('sqrt', '√')
 
-    st.button("Скинути значення", on_click=reset_form)
-    
-    st.success(f"Обчислюємо функцію: **y = {equation_text}**")
+    st.button(txt["reset_btn"], on_click=reset_form)
+
+    st.success(f"{txt["calc_func"]} **y = {equation_text}**")
     st.success(
-        "Знаходимо вершину параболи(Хо;Уо) за формулами: &nbsp;&nbsp;**x₀ = - b / 2a,&nbsp;&nbsp;&nbsp;y₀ = (-b² + 4ac) / 4a** ")
+        f"{txt["find_vertex_formula"]} &nbsp;&nbsp;**x₀ = - b / 2a,&nbsp;&nbsp;&nbsp;y₀ = (-b² + 4ac) / 4a** ")
     st.success(
-        f"Вершина параболи:&nbsp;**x₀ = {equation_text_2} ;&nbsp; y₀ = {equation_text_3}**, точка А **({equation_text_2}; {equation_text_3})**")
-    st.success(f"Точка перетину з віссю 0у:  **(0 ; {Oy:.1f})**")
-    st.success("Обчислюємо Дискримінант за формулою:&nbsp;**D = b² - 4ac**")
-    st.success(f"Дискримінант **D = {d:.1f}**")
-    st.success("Знаходимо корені функції за формулою: &nbsp; **x₁,₂= -b±√D / 2a**")
-    st.success(f"Точки перетину з віссю 0х: {term_x}")
+        f"{txt["vertex"]}&nbsp;**x₀ = {equation_text_2} ;&nbsp; y₀ = {equation_text_3}**, {txt["point"]} **({equation_text_2}; {equation_text_3})**")
+    st.success(f"{txt["point_0y"]}  **(0 ; {Oy:.1f})**")
+    st.success(f"{txt["calc_disc"]}&nbsp;**D = b² - 4ac**")
+    st.success(f"{txt["discr_D"]} **D = {d:.1f}**")
+    st.success(f"{txt["find_roots_formula"]} &nbsp; **x₁,₂= -b±√D / 2a**")
+    st.success(f"{txt["points_0x"]}: {term_x}")
 
     fig, ax = plt.subplots(figsize=(6, 6))
     x = np.linspace(-10, 10, 200)
@@ -245,12 +243,12 @@ def show_data():
 
     ax.grid(True, linestyle='-.', alpha=0.1)
     ax.legend()
-    ax.set_title(f"Графік функції: {func_label}")
+    ax.set_title(f"{txt["graph_title"]} {func_label}")
 
     st.pyplot(fig)
 
     st.write("---")
-    st.subheader("📥 Експорт")
+    st.subheader(f"{txt["export_header"]}")
 
     col1, col2 = st.columns([1, 2], gap="small")
 
@@ -260,33 +258,102 @@ def show_data():
     plt.close(fig)
 
     col1.download_button(
-        label="📷 Завантажити графік як PNG",
+        label=txt["download_png"],
         data=png_bytes,
-        file_name="quadratic_function.png",
+        file_name="q_function.png",
         mime="image/png",)
 
     col2.download_button(
-        label="📄 Завантажити графік як PDF",
+        label=txt["download_pdf"],
         data=pdf_bytes,
-        file_name="quadratic_function.pdf",
+        file_name="q_function.pdf",
         mime="application/pdf",)
 
+
+LANGUAGES = {
+    "🇺🇦 Українська": {
+        "title": "Калькулятор квадратичної функції",
+        "coef_a": "Коефіцієнт a",
+        "coef_b": "Коефіцієнт b",
+        "coef_c": "Коефіцієнт c",
+        "calc_btn": "Розрахувати",
+        "export_header": "📥 Експорт",
+        "download_png": "📷 Завантажити як PNG",
+        "download_pdf": "📄 Завантажити як PDF",
+        "donate_btn": "☕ Пригостити автора кавою",
+        "reset_btn": "Скинути значення",
+        "error_a": "Увага! Коефіцієнт 'a' не може дорівнювати 0 для квадратичної функції!",
+        "error_input": "Помилка! Дозволено лише: цілі, дробові та числа з коренем (√).\nПідкореневі числа записуються в душках √(n)\n де n потрібне число.",
+        "x_axis": "Графік функції не перетинає вісь 0х.",
+        "points_0x": "Точки перетину з віссю 0х:",
+        "calc_func": "Обчислюємо функцію:",
+        "find_vertex_formula": "Знаходимо вершину параболи(Х₀;У₀) за формулами:",
+        "vertex": "Вершина параболи",
+        "point": "Точка А",
+        "point_0y": "Точка перетину з віссю 0у:",
+        "calc_disc": "Обчислюємо Дискримінант за формулою:",
+        "discr_D": "Дискримінант:",
+        "find_roots_formula": "Знаходимо корені функції за формулою:",
+        "graph_title": "Графік функції:",
+    },
+    "🇬🇧 English": {
+        "title": "Quadratic Function Calculator",
+        "coef_a": "Coefficient a",
+        "coef_b": "Coefficient b",
+        "coef_c": "Coefficient c",
+        "calc_btn": "Calculate",
+        "export_header": "📥 Export",
+        "download_png": "📷 Download as PNG",
+        "download_pdf": "📄 Download as PDF",
+        "donate_btn": "☕ Buy me a coffee",
+        "reset_btn": "Reset",
+        "error_a": "Attention! The coefficient 'a' cannot be equal to 0 for a quadratic function!",
+        "error_input": "Error! Only integers, decimals, and square root numbers (√) are allowed.\nNumbers under the root must be written in parentheses as √(n), where n is the desired number.",
+        "x_axis": "The graph of the function does not intersect the x-axis.",
+        "points_0x": "x-intercepts",
+        "calc_func": "Calculating the function:",
+        "find_vertex_formula": "Finding the parabola vertex (X₀, Y₀) using formulas:",
+        "vertex": "Parabola vertex",
+        "point": "Point A",
+        "point_0y": "y-intercept:",
+        "calc_disc": "Calculating the Discriminant using the formula:",
+        "discr_D": "Discriminant:",
+        "find_roots_formula": "Finding the roots of the function using the formula:",
+        "graph_title": "Graph of the function:",
+
+    },
+}
 
 st.session_state.setdefault("coefficient_a", "")
 st.session_state.setdefault("coefficient_b", "")
 st.session_state.setdefault("coefficient_c", "")
 
+col_title, col_lang = st.columns([4, 1.5])
+with col_lang:
+    st.write("")  # Невеликий відступ вниз для вирівнювання з текстом
+    selected_lang = st.selectbox(
+        "Language",
+        list(LANGUAGES.keys()),
+        label_visibility="collapsed",
+        key="app_language_selector",
+    )
+
+# 4. Визначаємо поточний переклад
+txt = LANGUAGES[selected_lang]
+
+# 5. Наповнюємо ЛІВУ колонку головним заголовком додатка
+with col_title:
+    st.title(txt["title"])
 
 label = st.subheader("y = ax² + bx + c")
 
-entry_1 = st.text_input("Введіть значення a:", key="coefficient_a")
+entry_1 = st.text_input(txt["coef_a"], key="coefficient_a")
 
 
-entry_2 = st.text_input("Введіть значення b:", key="coefficient_b")
+entry_2 = st.text_input(txt["coef_b"], key="coefficient_b")
 
 
-entry_3 = st.text_input("Введіть значення c:", key="coefficient_c")
+entry_3 = st.text_input(txt["coef_c"], key="coefficient_c")
 
-if st.button("Розрахувати", type="primary"):
+if st.button(txt["calc_btn"], type="primary"):
     show_data()
-
