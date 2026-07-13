@@ -9,4 +9,4 @@ The program calculates a quadratic function based on the input values and visual
 ### Project Info 📈
 ![License](https://img.shields.io/github/license/AlexBabiuk/Quadra?color=violet)
 ![Code Size](https://img.shields.io/github/languages/code-size/AlexBabiuk/Quadra?color=violet)
-![Views](https://count.getloli.com/get/@AlexBabiuk-Quadra-Math?theme=gelbooru)
+![Views](https://count.getloli.com/@AlexBabiuk-Quadra-Math?theme=nixietube-1)
