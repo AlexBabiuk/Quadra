@@ -330,7 +330,7 @@ st.session_state.setdefault("coefficient_c", "")
 
 col_title, col_lang = st.columns([4, 1.5])
 with col_lang:
-    st.write("")  # Невеликий відступ вниз для вирівнювання з текстом
+    #st.write("")
     selected_lang = st.selectbox(
         "Language",
         list(LANGUAGES.keys()),
@@ -338,10 +338,8 @@ with col_lang:
         key="app_language_selector",
     )
 
-# 4. Визначаємо поточний переклад
 txt = LANGUAGES[selected_lang]
 
-# 5. Наповнюємо ЛІВУ колонку головним заголовком додатка
 with col_title:
     st.title(txt["title"])
 
