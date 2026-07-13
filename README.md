@@ -10,3 +10,4 @@ The program calculates a quadratic function based on the input values and visual
 ![License](https://img.shields.io/github/license/AlexBabiuk/Quadra?color=violet)
 ![Code Size](https://img.shields.io/github/languages/code-size/AlexBabiuk/Quadra?color=violet)
 <img src="https://count.getloli.com/@AlexBabiuk-Quadra-Math?theme=nixietube-1" height="35" alt="Views">
+--- ### 🚀 Launch the App You can try the live calculator here: **[Open Quadra App](https://q-function.streamlit.app)**
