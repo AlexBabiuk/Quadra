@@ -260,8 +260,8 @@ def show_data():
     button_html = f"""
     <a href="{my_kofi_url}" target="_blank" style="text-decoration: none;">
     <button style="
-        background-color: #FFDD00; 
-        color: #000000; 
+        background-color: #29abe2; 
+        color: #ffffff; 
         border: none; 
         padding: 12px 20px; 
         text-align: center; 
