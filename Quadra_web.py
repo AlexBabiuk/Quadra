@@ -252,6 +252,35 @@ def show_data():
         data=pdf_bytes,
         file_name="q_function.pdf",
         mime="application/pdf",)
+    st.write("")
+    st.write("")
+
+    my_bmc_url = "https://buymeacoffee.com"
+    # my_bmc_url = f"https://buymeacoffee.com{your_username}"
+
+    button_html = f"""
+    <a href="{my_bmc_url}" target="_blank" style="text-decoration: none;">
+    <button style="
+        background-color: #FFDD00; 
+        color: #000000; 
+        border: none; 
+        padding: 12px 20px; 
+        text-align: center; 
+        display: inline-block; 
+        font-size: 16px; 
+        border-radius: 8px; 
+        cursor: pointer;
+        width: 100%;
+        font-weight: bold;
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.1);">
+        {txt["donate_btn"]}
+    </button>
+    </a>
+    """
+
+    st.markdown(button_html, unsafe_allow_html=True)
+    st.write("---")
+    st.caption(txt["footer_text"])
 
 
 LANGUAGES = {
@@ -284,7 +313,7 @@ LANGUAGES = {
         Ви можете вільно використовувати, поширювати та модифікувати цей код, за умови збереження авторства та відкриття вихідного коду ваших похідних проєктів.
         
         Програма надається "ЯК Є", без жодних гарантій. Автор не несе відповідальності за будь-які наслідки її використання.""",
-
+        "donate_btn": "☕ Пригостити автора кавою",
     },
     "🇬🇧 English": {
         "title": "Quadratic Function Calculator",
@@ -310,11 +339,13 @@ LANGUAGES = {
         "discr_D": "Discriminant:",
         "find_roots_formula": "Finding the roots of the function using the formula:",
         "graph_title": "Graph of the function:",
-         "footer_text": """Copyright © 2026 Babiuk Alex.
-         This project is open-source software licensed under the GNU AGPLv3.
-         You are free to use, distribute, and modify this code, provided that authorship is preserved and the source code of your derivative projects remains open.
-         
-         The program is provided "AS IS", without warranties of any kind. The author shall not be liable for any consequences arising from its use.""",
+        "footer_text": """Copyright © 2026 Babiuk Alex.
+        This project is open-source software licensed under the GNU AGPLv3.
+        You are free to use, distribute, and modify this code, provided that authorship is preserved and the source code of your derivative projects remains open.
+        
+        The program is provided "AS IS", without warranties of any kind. The author shall not be liable for any consequences arising from its use.""",
+        "donate_btn": "☕ Buy me a coffee",
+
 
     },
 }
@@ -325,7 +356,6 @@ st.session_state.setdefault("coefficient_c", "")
 
 col_title, col_lang = st.columns([4, 1.5])
 with col_lang:
-    #st.write("")
     selected_lang = st.selectbox(
         "Language",
         list(LANGUAGES.keys()),
