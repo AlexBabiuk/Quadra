@@ -204,7 +204,7 @@ def show_data():
     if d <= 0:
         if a > 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'      А    \n({x0:.1f}; {y0:.1f})'
+            annotation_text = f'        А    \n({x0:.1f}; {y0:.1f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
                         xytext=(x0-1.2, y0-1.2), color='blue')
@@ -255,11 +255,10 @@ def show_data():
     st.write("")
     st.write("")
 
-    my_bmc_url = "https://buymeacoffee.com"
-    # my_bmc_url = f"https://buymeacoffee.com{your_username}"
+    my_kofi_url = "https://ko-fi.com/alexbabiuk"
 
     button_html = f"""
-    <a href="{my_bmc_url}" target="_blank" style="text-decoration: none;">
+    <a href="{my_kofi_url}" target="_blank" style="text-decoration: none;">
     <button style="
         background-color: #FFDD00; 
         color: #000000; 
