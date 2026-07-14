@@ -1,19 +1,3 @@
-"""
-Copyright © 2026 Babiuk Alex. Всі права захищені.
-
-Ця програма є об'єктом інтелектуальної власності автора.
-Користувачеві надається обмежена, невиключна ліцензія на використання
-програми суто в особистих або внутрішніх комерційних цілях.
-
-КАТЕГОРИЧНО ЗАБОРОНЯЄТЬСЯ:
-1. Копіювати, поширювати або передавати програму третім особам.
-2. Проводити реверс-инжиніринг, декомпіляцію або модифікацію коду.
-3. Використовувати програму для створення конкуруючих продуктів.
-
-ПРОГРАМА НАДАЄТЬСЯ "ЯК Є" (AS IS), БЕЗ ЖОДНИХ ГАРАНТІЙ. АВТОР НЕ НЕСЕ
-ВІДПОВІДАЛЬНОСТІ ЗА БУДЬ-ЯКІ ЗБИТКИ ВНАСЛІДОК ЇЇ ВИКОРИСТАННЯ.
-"""
-
 from fractions import Fraction
 import os
 import sys
@@ -295,6 +279,12 @@ LANGUAGES = {
         "discr_D": "Дискримінант:",
         "find_roots_formula": "Знаходимо корені функції за формулою:",
         "graph_title": "Графік функції:",
+        "footer_text": """Copyright © 2026 Babiuk Alex.
+        Цей проєкт є програмним забезпеченням з відкритим вихідним кодом і поширюється під ліцензією GNU AGPLv3.
+        Ви можете вільно використовувати, поширювати та модифікувати цей код, за умови збереження авторства та відкриття вихідного коду ваших похідних проєктів.
+        
+        Програма надається "ЯК Є", без жодних гарантій. Автор не несе відповідальності за будь-які наслідки її використання.""",
+
     },
     "🇬🇧 English": {
         "title": "Quadratic Function Calculator",
@@ -320,6 +310,11 @@ LANGUAGES = {
         "discr_D": "Discriminant:",
         "find_roots_formula": "Finding the roots of the function using the formula:",
         "graph_title": "Graph of the function:",
+         "footer_text": """Copyright © 2026 Babiuk Alex.
+         This project is open-source software licensed under the GNU AGPLv3.
+         You are free to use, distribute, and modify this code, provided that authorship is preserved and the source code of your derivative projects remains open.
+         
+         The program is provided "AS IS", without warranties of any kind. The author shall not be liable for any consequences arising from its use.""",
 
     },
 }
