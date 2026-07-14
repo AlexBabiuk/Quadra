@@ -204,7 +204,7 @@ def show_data():
     if d <= 0:
         if a > 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'        А    \n({x0:.1f}; {y0:.1f})'
+            annotation_text = f'      А    \n({x0:.1f}; {y0:.1f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
                         xytext=(x0-1.2, y0-1.2), color='blue')
