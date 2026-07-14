@@ -353,19 +353,21 @@ st.session_state.setdefault("coefficient_a", "")
 st.session_state.setdefault("coefficient_b", "")
 st.session_state.setdefault("coefficient_c", "")
 
-col_title, col_lang = st.columns([4, 1.5])
-with col_lang:
-    selected_lang = st.selectbox(
-        "Language",
-        list(LANGUAGES.keys()),
-        label_visibility="collapsed",
-        key="app_language_selector",
-    )
+lang_list = list(LANGUAGES.keys())
+default_lang_index = lang_list.index(
+    "🇬🇧 English") if "🇬🇧 English" in lang_list else 0
+    
+selected_lang = st.selectbox(
+    "Language",
+    lang_list,
+    index=default_lang_index, 
+    label_visibility="collapsed",
+    key="app_language_selector",
+)
 
 txt = LANGUAGES[selected_lang]
 
-with col_title:
-    st.title(txt["title"])
+st.title(txt["title"])
 
 label = st.subheader("y = ax² + bx + c")
 
