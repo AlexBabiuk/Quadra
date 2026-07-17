@@ -312,7 +312,7 @@ LANGUAGES = {
         Ви можете вільно використовувати, поширювати та модифікувати цей код, за умови збереження авторства та відкриття вихідного коду ваших похідних проєктів.
         
         Програма надається "ЯК Є", без жодних гарантій. Автор не несе відповідальності за будь-які наслідки її використання.""",
-        "donate_btn": "☕ Пригостити автора кавою",
+        "donate_btn": "☕ Підтримай проект. Пригостити автора кавою",
     },
     "🇬🇧 English": {
         "title": "Quadratic Function Calculator",
@@ -343,7 +343,7 @@ LANGUAGES = {
         You are free to use, distribute, and modify this code, provided that authorship is preserved and the source code of your derivative projects remains open.
         
         The program is provided "AS IS", without warranties of any kind. The author shall not be liable for any consequences arising from its use.""",
-        "donate_btn": "☕ Buy me a coffee",
+        "donate_btn": "☕ Support my project. Buy me a coffee.",
 
 
     },
