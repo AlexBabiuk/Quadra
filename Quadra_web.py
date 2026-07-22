@@ -165,7 +165,7 @@ def show_data():
     func_label = f"y = {equation_text}"
 
     ax.plot(x, y, label=func_label, color='red', linewidth=1)
-    ax.plot(x0, y0, "bo", ms=2, label=f"{txt["vertex"]}: ({x0:.2f}; {y0:.2f})")
+    ax.plot(x0, y0, "bo", ms=2, label=f"{txt["vertex"]} ({x0:.2f}; {y0:.2f})")
     ax.plot(Oy, "mo", ms=2, label=f"{txt["point_0y"]} ({Oy:.2f}; 0)")
 
     if d > 0:
@@ -311,7 +311,7 @@ LANGUAGES = {
         "points_0x": "Точки перетину з віссю 0х:",
         "calc_func": "Обчислюємо функцію:",
         "find_vertex_formula": "Знаходимо вершину параболи(Х₀;У₀) за формулами:",
-        "vertex": "Вершина параболи",
+        "vertex": "Вершина параболи: А",
         "point": "Точка А",
         "point_0y": "Точка перетину з віссю 0у:",
         "calc_disc": "Обчислюємо Дискримінант за формулою:",
@@ -344,7 +344,7 @@ LANGUAGES = {
         "points_0x": "x-intercepts",
         "calc_func": "Calculating the function:",
         "find_vertex_formula": "Finding the parabola vertex (X₀, Y₀) using formulas:",
-        "vertex": "A vertex point",
+        "vertex": "Vertex point: A",
         "point": "Point A",
         "point_0y": "y-intercept:",
         "calc_disc": "Calculating the Discriminant using the formula:",
@@ -398,4 +398,3 @@ entry_3 = st.text_input(txt["coef_c"], key="coefficient_c")
 
 if st.button(txt["calc_btn"], type="primary"):
     show_data()
-
