@@ -166,14 +166,15 @@ def show_data():
 
     ax.plot(x, y, label=func_label, color='red', linewidth=1)
     ax.plot(x0, y0, "bo", ms=2, label=f"{txt["vertex"]}: ({x0:.2f}; {y0:.2f})")
+    ax.plot(Oy, "mo", ms=2, label=f"{txt["point_0y"]} ({Oy:.2f}; 0)")
 
     if d > 0:
         if a > 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
+            annotation_text = f'        А  \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
-                        xytext=(x0-1.2, y0-1.2), color='blue')
+                        xytext=(x0-1.9, y0-1.4), color='blue')
 
             ax.plot(x_1, 0, marker='o', color='green', markersize=1.5)
             annotation_text = f'({x_1:.2f}; 0)'
@@ -184,28 +185,28 @@ def show_data():
             annotation_text = f'({x_2:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_2, 0),
-                        xytext=(x_2 - 2.2, 0.2), color='blue')
+                        xytext=(x_2 - 3, 0.2), color='blue')
             ax.plot([x_1, x_2], [0, 0], "go",
-                    ms=2, label=f"{txt["x_inter"]} ({x_min:.2f};0),({x_max:.2f};0)")
+                    ms=2, label=f"{txt["x_inter"]} ({x_min:.2f}; 0),({x_max:.2f}; 0)")
         if a < 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
             annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
-                        xytext=(x0-1.2, y0+0.2), color='blue')
+                        xytext=(x0-1.7, y0+0.2), color='blue')
 
             ax.plot(x_1, 0, marker='o', color='green', markersize=1.5)
             annotation_text = f'({x_1:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_1, 0),
-                        xytext=(x_1 - 2.2, 0.2), color='blue')
+                        xytext=(x_1 - 3, 0.2), color='blue')
             ax.plot(x_2, 0, marker='o', color='green', markersize=1.5)
             annotation_text = f'({x_2:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_2, 0),
                         xytext=(x_2 + 0.4, 0.2), color='blue')
             ax.plot([x_1, x_2], [0, 0], "go",
-                    ms=2, label=f"{txt["x_inter"]} ({x_min:.2f};0),({x_max:.2f};0)")
+                    ms=2, label=f"{txt["x_inter"]} ({x_min:.2f}; 0),({x_max:.2f}; 0)")
     if d <= 0:
         if a > 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
@@ -219,7 +220,7 @@ def show_data():
             annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
-                        xytext=(x0-1.2, y0+0.2), color='blue')
+                        xytext=(x0-1.7, y0+0.2), color='blue')
 
     ax.axhline(0, color='black', linewidth=0.5)
     ax.axvline(0, color='black', linewidth=0.5)
@@ -315,7 +316,7 @@ LANGUAGES = {
         "discr_D": "Дискримінант:",
         "find_roots_formula": "Знаходимо корені функції за формулою:",
         "graph_title": "Графік функції:",
-        "x_inter": "Нулі функції",
+        "x_inter": "Нулі функції:",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         Цей проєкт є програмним забезпеченням з відкритим вихідним кодом і поширюється під ліцензією GNU AGPLv3.
         Ви можете вільно використовувати, поширювати та модифікувати цей код, за умови збереження авторства та відкриття вихідного коду ваших похідних проєктів.
@@ -347,7 +348,7 @@ LANGUAGES = {
         "discr_D": "Discriminant:",
         "find_roots_formula": "Finding the roots of the function using the formula:",
         "graph_title": "Graph of the function:",
-        "x_inter": "X-intercepts",
+        "x_inter": "x-intercepts:",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         This project is open-source software licensed under the GNU AGPLv3.
         You are free to use, distribute, and modify this code, provided that authorship is preserved and the source code of your derivative projects remains open.
@@ -393,3 +394,4 @@ entry_3 = st.text_input(txt["coef_c"], key="coefficient_c")
 
 if st.button(txt["calc_btn"], type="primary"):
     show_data()
+
