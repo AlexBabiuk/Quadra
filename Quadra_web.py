@@ -156,7 +156,7 @@ def show_data():
     st.success(f"{txt["calc_disc"]}&nbsp;**D = b² - 4ac**")
     st.success(f"{txt["discr_D"]} **D = {d:.2f}**")
     st.success(f"{txt["find_roots_formula"]} &nbsp; **x₁,₂= -b±√D / 2a**")
-    st.success(f"{txt["points_0x"]}: {term_x}")
+    st.success(f"{txt["points_0x"]} {term_x}")
 
     fig, ax = plt.subplots(figsize=(6, 6))
     x = np.linspace(-10, 10, 200)
