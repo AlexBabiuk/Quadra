@@ -63,7 +63,7 @@ def show_data():
     elif a == -1:
         term_a = "-x²"
     elif a == float(a):
-        term_a = f"{a:.1f}x²"
+        term_a = f"{float(a):g}x²"
     else:
         term_a = f"{a}x²"
 
@@ -85,12 +85,12 @@ def show_data():
             term_b = f" - {abs(b)}x"
         elif isinstance(b, sp.Float):
             b = b * -1
-            term_b = f" - {b:.1f}x"
+            term_b = f" - {float(b):g}x"
             b = b * -1
         else:
             term_b = f"{b}"
     elif b == float(b):
-        term_b = f"+{b:.1f}x"
+        term_b = f"+{float(b):g}x"
     else:
         term_b = f" + {b}x"
 
@@ -108,12 +108,12 @@ def show_data():
             term_c = f" - {abs(c)}"
         elif isinstance(c, sp.Float):
             c = c * -1
-            term_c = f" - {c:.1f}"
+            term_c = f" - {float(c):g}"
             c = c * -1
         else:
             term_c = f"{c}"
     elif c == float(c):
-        term_c = f"+{c:.1f}"
+        term_c = f"+{c:g}"
     else:
         term_c = f" + {c}"
     x0 = (-b/(2*a))
@@ -130,16 +130,16 @@ def show_data():
         else:
             x_min = x_1
             x_max = x_2
-        term_x = f"**x₁  = ({x_min:.1f} ; 0) , x₂ = ({x_max:.1f} ; 0)** "
+        term_x = f"**x₁  = ({x_min:.2f} ; 0) , x₂ = ({x_max:.2f} ; 0)** "
     elif d == 0:
         x_0 = -b / 2*a
-        term_x = f" **x_₁_₂ = ({x_0:.1f} ; 0)**"
+        term_x = f" **x_₁_₂ = ({x_0:.2f} ; 0)**"
     else:
         term_x = txt["x_axis"]
 
     equation_text = f"{term_a}{term_b}{term_c}"
-    equation_text_2 = f"{x0:.1f}"
-    equation_text_3 = f"{y0:.1f}"
+    equation_text_2 = f"{x0:.2f}"
+    equation_text_3 = f"{y0:.2f}"
 
     equation_text = equation_text.replace('sqrt', '√')
     equation_text_2 = equation_text_2.replace('sqrt', '√')
@@ -152,9 +152,9 @@ def show_data():
         f"{txt["find_vertex_formula"]} &nbsp;&nbsp;**x₀ = - b / 2a,&nbsp;&nbsp;&nbsp;y₀ = (-b² + 4ac) / 4a** ")
     st.success(
         f"{txt["vertex"]}&nbsp;**x₀ = {equation_text_2} ;&nbsp; y₀ = {equation_text_3}**, {txt["point"]} **({equation_text_2}; {equation_text_3})**")
-    st.success(f"{txt["point_0y"]}  **(0 ; {Oy:.1f})**")
+    st.success(f"{txt["point_0y"]}  **(0 ; {Oy:.2f})**")
     st.success(f"{txt["calc_disc"]}&nbsp;**D = b² - 4ac**")
-    st.success(f"{txt["discr_D"]} **D = {d:.1f}**")
+    st.success(f"{txt["discr_D"]} **D = {d:.2f}**")
     st.success(f"{txt["find_roots_formula"]} &nbsp; **x₁,₂= -b±√D / 2a**")
     st.success(f"{txt["points_0x"]}: {term_x}")
 
@@ -165,53 +165,58 @@ def show_data():
     func_label = f"y = {equation_text}"
 
     ax.plot(x, y, label=func_label, color='red', linewidth=1)
+    ax.plot(x0, y0, "bo", ms=2, label=f"{txt["vertex"]}: ({x0:.2f}; {y0:.2f})")
 
     if d > 0:
         if a > 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'        А    \n({x0:.1f}; {y0:.1f})'
+            annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
                         xytext=(x0-1.2, y0-1.2), color='blue')
 
-            ax.plot(x_1, 0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'({x_1:.1f}; 0)'
+            ax.plot(x_1, 0, marker='o', color='green', markersize=1.5)
+            annotation_text = f'({x_1:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_1, 0),
                         xytext=(x_1 + 0.4, 0.2), color='blue')
-            ax.plot(x_2, 0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'({x_2:.1f}; 0)'
+            ax.plot(x_2, 0, marker='o', color='green', markersize=1.5)
+            annotation_text = f'({x_2:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_2, 0),
                         xytext=(x_2 - 2.2, 0.2), color='blue')
+            ax.plot([x_1, x_2], [0, 0], "go",
+                    ms=2, label=f"{txt["x_inter"]} ({x_min:.2f};0),({x_max:.2f};0)")
         if a < 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'        А    \n({x0:.1f}; {y0:.1f})'
+            annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
                         xytext=(x0-1.2, y0+0.2), color='blue')
 
-            ax.plot(x_1, 0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'({x_1:.1f}; 0)'
+            ax.plot(x_1, 0, marker='o', color='green', markersize=1.5)
+            annotation_text = f'({x_1:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_1, 0),
                         xytext=(x_1 - 2.2, 0.2), color='blue')
-            ax.plot(x_2, 0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'({x_2:.1f}; 0)'
+            ax.plot(x_2, 0, marker='o', color='green', markersize=1.5)
+            annotation_text = f'({x_2:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_2, 0),
                         xytext=(x_2 + 0.4, 0.2), color='blue')
+            ax.plot([x_1, x_2], [0, 0], "go",
+                    ms=2, label=f"{txt["x_inter"]} ({x_min:.2f};0),({x_max:.2f};0)")
     if d <= 0:
         if a > 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'        А    \n({x0:.1f}; {y0:.1f})'
+            annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
                         xytext=(x0-1.2, y0-1.2), color='blue')
 
         if a < 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
-            annotation_text = f'        А    \n({x0:.1f}; {y0:.1f})'
+            annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
                         xytext=(x0-1.2, y0+0.2), color='blue')
@@ -226,8 +231,11 @@ def show_data():
     ax.set_yticks(np.arange(-10, 11, 1))
 
     ax.grid(True, linestyle='-.', alpha=0.1)
-    ax.legend()
+    # ax.legend()
+    ax.legend(loc="best", fontsize=8, frameon=True, shadow=True)
     ax.set_title(f"{txt["graph_title"]} {func_label}")
+    ax.set_xlabel("X", fontsize=10, color="red")
+    ax.set_ylabel("Y", fontsize=10, color="red")
 
     st.pyplot(fig)
 
@@ -307,12 +315,13 @@ LANGUAGES = {
         "discr_D": "Дискримінант:",
         "find_roots_formula": "Знаходимо корені функції за формулою:",
         "graph_title": "Графік функції:",
+        "x_inter": "Нулі функції",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         Цей проєкт є програмним забезпеченням з відкритим вихідним кодом і поширюється під ліцензією GNU AGPLv3.
         Ви можете вільно використовувати, поширювати та модифікувати цей код, за умови збереження авторства та відкриття вихідного коду ваших похідних проєктів.
         
         Програма надається "ЯК Є", без жодних гарантій. Автор не несе відповідальності за будь-які наслідки її використання.""",
-        "donate_btn": "☕ Підтримай проект. Пригостити автора кавою",
+        "donate_btn": "☕ Пригостити автора кавою",
     },
     "🇬🇧 English": {
         "title": "Quadratic Function Calculator",
@@ -338,12 +347,13 @@ LANGUAGES = {
         "discr_D": "Discriminant:",
         "find_roots_formula": "Finding the roots of the function using the formula:",
         "graph_title": "Graph of the function:",
+        "x_inter": "X-intercepts",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         This project is open-source software licensed under the GNU AGPLv3.
         You are free to use, distribute, and modify this code, provided that authorship is preserved and the source code of your derivative projects remains open.
         
         The program is provided "AS IS", without warranties of any kind. The author shall not be liable for any consequences arising from its use.""",
-        "donate_btn": "☕ Support my project. Buy me a coffee.",
+        "donate_btn": "☕ Buy me a coffee",
 
 
     },
@@ -354,13 +364,14 @@ st.session_state.setdefault("coefficient_b", "")
 st.session_state.setdefault("coefficient_c", "")
 
 lang_list = list(LANGUAGES.keys())
+
 default_lang_index = lang_list.index(
     "🇬🇧 English") if "🇬🇧 English" in lang_list else 0
-    
+
 selected_lang = st.selectbox(
     "Language",
     lang_list,
-    index=default_lang_index, 
+    index=default_lang_index,
     label_visibility="collapsed",
     key="app_language_selector",
 )
@@ -368,6 +379,7 @@ selected_lang = st.selectbox(
 txt = LANGUAGES[selected_lang]
 
 st.title(txt["title"])
+
 
 label = st.subheader("y = ax² + bx + c")
 
