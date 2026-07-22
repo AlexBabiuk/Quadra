@@ -156,7 +156,7 @@ def show_data():
     st.success(f"{txt["calc_disc"]}&nbsp;**D = b² - 4ac**")
     st.success(f"{txt["discr_D"]} **D = {d:.2f}**")
     st.success(f"{txt["find_roots_formula"]} &nbsp; **x₁,₂= -b±√D / 2a**")
-    st.success(f"{txt["points_0x"]} {term_x}")
+    st.success(f"{txt["points_0x"]}: {term_x}")
 
     fig, ax = plt.subplots(figsize=(6, 6))
     x = np.linspace(-10, 10, 200)
@@ -213,7 +213,8 @@ def show_data():
             annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
-                        xytext=(x0-1.2, y0-1.2), color='blue')
+                        xytext=(x0-1.8, y0-1.4), color='blue')
+            ax.plot([], [], "go", ms=2, label=f"{txt["noreal"]}")
 
         if a < 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
@@ -221,6 +222,7 @@ def show_data():
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x0, y0),
                         xytext=(x0-1.7, y0+0.2), color='blue')
+            ax.plot([], [], "go", ms=2, label=f"{txt["noreal"]}")
 
     ax.axhline(0, color='black', linewidth=0.5)
     ax.axvline(0, color='black', linewidth=0.5)
@@ -317,6 +319,7 @@ LANGUAGES = {
         "find_roots_formula": "Знаходимо корені функції за формулою:",
         "graph_title": "Графік функції:",
         "x_inter": "Нулі функції:",
+        "noreal": "Рівняння не має дійсних коренів (D < 0)",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         Цей проєкт є програмним забезпеченням з відкритим вихідним кодом і поширюється під ліцензією GNU AGPLv3.
         Ви можете вільно використовувати, поширювати та модифікувати цей код, за умови збереження авторства та відкриття вихідного коду ваших похідних проєктів.
@@ -341,7 +344,7 @@ LANGUAGES = {
         "points_0x": "x-intercepts",
         "calc_func": "Calculating the function:",
         "find_vertex_formula": "Finding the parabola vertex (X₀, Y₀) using formulas:",
-        "vertex": "Parabola vertex",
+        "vertex": "A vertex point",
         "point": "Point A",
         "point_0y": "y-intercept:",
         "calc_disc": "Calculating the Discriminant using the formula:",
@@ -349,6 +352,7 @@ LANGUAGES = {
         "find_roots_formula": "Finding the roots of the function using the formula:",
         "graph_title": "Graph of the function:",
         "x_inter": "x-intercepts:",
+        "noreal": "No real roots (D < 0)",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         This project is open-source software licensed under the GNU AGPLv3.
         You are free to use, distribute, and modify this code, provided that authorship is preserved and the source code of your derivative projects remains open.
