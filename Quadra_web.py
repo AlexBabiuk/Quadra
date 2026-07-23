@@ -113,7 +113,7 @@ def show_data():
         else:
             term_c = f"{c}"
     elif c == float(c):
-        term_c = f"+{c:g}"
+        term_c = f"+{float(c):g}"
     else:
         term_c = f" + {c}"
     x0 = (-b/(2*a))
@@ -417,3 +417,4 @@ entry_3 = st.text_input(txt["coef_c"], key="coefficient_c")
 
 if st.button(txt["calc_btn"], type="primary"):
     show_data()
+
