@@ -313,7 +313,7 @@ def show_data():
 
 
 LANGUAGES = {
-    "🇺🇦 Українська": {
+    "🇺🇦 Українська (UKR)": {
         "title": "Калькулятор квадратичної функції",
         "coef_a": "Коефіцієнт a",
         "coef_b": "Коефіцієнт b",
@@ -348,7 +348,7 @@ LANGUAGES = {
         Програма надається "ЯК Є", без жодних гарантій. Автор не несе відповідальності за будь-які наслідки її використання.""",
         "donate_btn": "☕ Пригостити автора кавою",
     },
-    "🇬🇧 English": {
+    "🇬🇧 English (ENG)": {
         "title": "Quadratic Function Calculator",
         "coef_a": "Coefficient a",
         "coef_b": "Coefficient b",
