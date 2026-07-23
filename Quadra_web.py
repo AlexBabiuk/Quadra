@@ -154,7 +154,8 @@ def show_data():
         f"{txt["vertex"]}&nbsp;**x₀ = {equation_text_2} ;&nbsp; y₀ = {equation_text_3}**, {txt["point"]} **({equation_text_2}; {equation_text_3})**")
     st.success(f"{txt["point_0y"]}  **(0 ; {Oy:.2f})**")
     st.success(f"{txt["calc_disc"]}&nbsp;**D = b² - 4ac**")
-    st.success(f"{txt["discr_D"]} **D = {d:.2f}**")
+    # st.success(f"{txt["discr_D"]} **D = {d:.2f}**")
+    st.success(f"{txt["discr_D"]} **D = {(d):g}**")
     st.success(f"{txt["find_roots_formula"]} &nbsp; **x₁,₂= -b±√D / 2a**")
     st.success(f"{txt["points_0x"]}: {term_x}")
 
