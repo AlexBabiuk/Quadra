@@ -166,7 +166,7 @@ def show_data():
 
     ax.plot(x, y, label=func_label, color='red', linewidth=1)
     ax.plot(x0, y0, "bo", ms=2, label=f"{txt["vertex"]} ({x0:.2f}; {y0:.2f})")
-    ax.plot(Oy, "mo", ms=2, label=f"{txt["point_0y"]} ({Oy:.2f}; 0)")
+    ax.plot(Oy, "mo", ms=2, label=f"{txt["point_0y"]} (0; {Oy:.2f})")
 
     if d > 0:
         if a > 0:
@@ -207,7 +207,7 @@ def show_data():
                         xytext=(x_2 + 0.4, 0.2), color='blue')
             ax.plot([x_1, x_2], [0, 0], "go",
                     ms=2, label=f"{txt["x_inter"]} ({x_min:.2f}; 0),({x_max:.2f}; 0)")
-    if d <= 0:
+    if d < 0:
         if a > 0:
             ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
             annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
@@ -223,6 +223,24 @@ def show_data():
                         xy=(x0, y0),
                         xytext=(x0-1.7, y0+0.2), color='blue')
             ax.plot([], [], "go", ms=2, label=f"{txt["noreal"]}")
+    if d == 0:
+        if a > 0:
+            ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
+            annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
+            ax.annotate(annotation_text, fontsize=10,
+                        xy=(x0, y0),
+                        xytext=(x0-1.8, y0-1.4), color='blue')
+            ax.plot([], [], "go", ms=2,
+                    label=f"{txt["x_inter_0"]} ({x0:.2f}; 0)")
+
+        if a < 0:
+            ax.plot(x0, y0, marker='o', color='blue', markersize=1.5)
+            annotation_text = f'        А    \n({x0:.2f}; {y0:.2f})'
+            ax.annotate(annotation_text, fontsize=10,
+                        xy=(x0, y0),
+                        xytext=(x0-1.7, y0+0.2), color='blue')
+            ax.plot([], [], "go", ms=2,
+                    label=f"{txt["x_inter_0"]} ({x_0:.2f}; 0)")
 
     ax.axhline(0, color='black', linewidth=0.5)
     ax.axvline(0, color='black', linewidth=0.5)
@@ -234,7 +252,6 @@ def show_data():
     ax.set_yticks(np.arange(-10, 11, 1))
 
     ax.grid(True, linestyle='-.', alpha=0.1)
-    # ax.legend()
     ax.legend(loc="best", fontsize=8, frameon=True, shadow=True)
     ax.set_title(f"{txt["graph_title"]} {func_label}")
     ax.set_xlabel("X", fontsize=10, color="red")
@@ -318,7 +335,8 @@ LANGUAGES = {
         "discr_D": "Дискримінант:",
         "find_roots_formula": "Знаходимо корені функції за формулою:",
         "graph_title": "Графік функції:",
-        "x_inter": "Нулі функції:",
+        "x_inter": "Корені рівняння:",
+        "x_inter_0": "Корінь рівняння:",
         "noreal": "Рівняння не має дійсних коренів (D < 0)",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         Цей проєкт є програмним забезпеченням з відкритим вихідним кодом і поширюється під ліцензією GNU AGPLv3.
@@ -352,6 +370,7 @@ LANGUAGES = {
         "find_roots_formula": "Finding the roots of the function using the formula:",
         "graph_title": "Graph of the function:",
         "x_inter": "x-intercepts:",
+        "x_inter_0": "x-intercept:",
         "noreal": "No real roots (D < 0)",
         "footer_text": """Copyright © 2026 Babiuk Alex.
         This project is open-source software licensed under the GNU AGPLv3.
