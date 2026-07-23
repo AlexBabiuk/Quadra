@@ -164,7 +164,7 @@ def show_data():
 
     func_label = f"y = {equation_text}"
 
-    ax.plot(x, y, label=func_label, color='red', linewidth=1)
+    ax.plot(x, y, label=func_label, color='red', linewidth=1.4)
     ax.plot(x0, y0, "bo", ms=2, label=f"{txt["vertex"]} ({x0:.2f}; {y0:.2f})")
     ax.plot(Oy, "mo", ms=2, label=f"{txt["point_0y"]} (0; {Oy:.2f})")
 
@@ -180,12 +180,12 @@ def show_data():
             annotation_text = f'({x_1:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_1, 0),
-                        xytext=(x_1 + 0.4, 0.2), color='blue')
+                        xytext=(x_1 + 0.4, 0.2), color='green')
             ax.plot(x_2, 0, marker='o', color='green', markersize=1.5)
             annotation_text = f'({x_2:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_2, 0),
-                        xytext=(x_2 - 3, 0.2), color='blue')
+                        xytext=(x_2 - 3, 0.2), color='green')
             ax.plot([x_1, x_2], [0, 0], "go",
                     ms=2, label=f"{txt["x_inter"]} ({x_min:.2f}; 0),({x_max:.2f}; 0)")
         if a < 0:
@@ -199,12 +199,12 @@ def show_data():
             annotation_text = f'({x_1:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_1, 0),
-                        xytext=(x_1 - 3, 0.2), color='blue')
+                        xytext=(x_1 - 3, 0.2), color='green')
             ax.plot(x_2, 0, marker='o', color='green', markersize=1.5)
             annotation_text = f'({x_2:.2f}; 0)'
             ax.annotate(annotation_text, fontsize=10,
                         xy=(x_2, 0),
-                        xytext=(x_2 + 0.4, 0.2), color='blue')
+                        xytext=(x_2 + 0.4, 0.2), color='green')
             ax.plot([x_1, x_2], [0, 0], "go",
                     ms=2, label=f"{txt["x_inter"]} ({x_min:.2f}; 0),({x_max:.2f}; 0)")
     if d < 0:
