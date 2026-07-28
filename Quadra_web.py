@@ -394,7 +394,7 @@ st.session_state.setdefault("coefficient_c", "")
 lang_list = list(LANGUAGES.keys())
 
 default_lang_index = lang_list.index(
-    "🇬🇧 English") if "🇬🇧 English" in lang_list else 0
+    "🇬🇧 English (ENG)") if "🇬🇧 English (ENG) " in lang_list else 0
 
 selected_lang = st.selectbox(
     "Language",
