@@ -9,6 +9,7 @@ The program calculates a quadratic function based on the input values and visual
 <img width="1591" height="1583" alt="q_function" src="https://github.com/user-attachments/assets/869c51f8-2b0a-4b65-a5a8-1b4588a0f224" />
 
 
+
 ---
 
 ### Project Info 📈
