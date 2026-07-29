@@ -6,7 +6,7 @@ The program calculates a quadratic function based on the input values and visual
 
 
 <p align="center">
-  <img src="<img width="400" height="640" alt="quadra_480" src="https://github.com/user-attachments/assets/7b00b299-ef43-4a2e-9365-58ed5ba19e6d" />
+<img src="<img width="400" height="640" alt="quadra_480" src="https://github.com/user-attachments/assets/7b00b299-ef43-4a2e-9365-58ed5ba19e6d" />
 " alt="Демонстрація роботи додатка" width="700">
 </p>
 
